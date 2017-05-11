@@ -1,0 +1,16 @@
+<%@ val contextPath: String %>
+
+<!DOCTYPE html>
+<html>
+	<head data-context-path="${contextPath}">
+		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/css/bootstrap.css">
+
+		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+
+		<title> Carat API Prototype </title>
+	</head>
+
+	<body onload="">
+		<% render("index.ssp") %>
+	</body>
+</html>

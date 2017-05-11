@@ -1,0 +1,24 @@
+package caratAPIPrototype.services
+
+import scalaj.http.{Http, HttpOptions}
+import com.typesafe.config._
+
+
+object SparkDispatcher {
+	val conf = ConfigFactory.load()
+	val sparkBackendProtocol = conf.getInt("spark-server.protocol")
+	val sparkBackendAddr = conf.getString("spark-server.address")
+	val sparkBackendPort = conf.getString("spark-server.port")
+	val sparkBackendTimeout = conf.getInt("spark-server.timeout")
+
+	def postRequest(): String = {
+		val request = Http(s"${sparkBackendProtocol}://${sparkBackendAddr}:${sparkBackendPort}")
+			.header("Content-Type", "application/json")
+			.header("Charset", "UTF-8")
+			.option(HttpOptions.readTimeout(sparkBackendTimeout))
+			.asString
+		request.body
+	}
+
+}
+
