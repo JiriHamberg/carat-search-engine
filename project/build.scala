@@ -22,7 +22,8 @@ object CarapAPIProtoBuild extends Build {
       version := Version,
       scalaVersion := ScalaVersion,
       //force old jvm because users.cs.helsinki.fi uses tomcat6
-      scalacOptions += "-target:jvm-1.6",
+      //scalacOptions += "-target:jvm-1.6",
+      //javacOptions ++= Seq("-source", "1.6", "-target", "1.6"),
       resolvers += Classpaths.typesafeReleases,
       resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases",
       libraryDependencies ++= Seq(
