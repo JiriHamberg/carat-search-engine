@@ -6,7 +6,7 @@ import com.typesafe.config._
 
 object SparkDispatcher {
 	val conf = ConfigFactory.load()
-	val sparkBackendProtocol = conf.getInt("spark-server.protocol")
+	val sparkBackendProtocol = conf.getString("spark-server.protocol")
 	val sparkBackendAddr = conf.getString("spark-server.address")
 	val sparkBackendPort = conf.getString("spark-server.port")
 	val sparkBackendTimeout = conf.getInt("spark-server.timeout")
