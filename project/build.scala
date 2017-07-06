@@ -33,7 +33,10 @@ object CarapAPIProtoBuild extends Build {
         "org.scalatra" %% "scalatra-json" % ScalatraVersion,
         "org.json4s"   %% "json4s-jackson" % "3.3.0",
         "com.typesafe" % "config" % "1.3.1",
-        "org.scalaj" % "scalaj-http_2.11" % "2.3.0"
+        "org.scalaj" % "scalaj-http_2.11" % "2.3.0",
+        //web jars
+        "org.webjars" % "bootstrap" % "2.3.2",
+        "org.webjars" % "jquery" % "3.2.1"
       ),
       scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>
         Seq(
