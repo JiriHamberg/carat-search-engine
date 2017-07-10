@@ -34,9 +34,11 @@ object CarapAPIProtoBuild extends Build {
         "org.json4s"   %% "json4s-jackson" % "3.3.0",
         "com.typesafe" % "config" % "1.3.1",
         "org.scalaj" % "scalaj-http_2.11" % "2.3.0",
-        //web jars
+        //web jars - frontend libraries
         "org.webjars" % "bootstrap" % "2.3.2",
-        "org.webjars" % "jquery" % "3.2.1"
+        "org.webjars" % "jquery" % "3.2.1",
+        "org.webjars.bower" % "mustache" % "2.3.0"
+        //"org.webjars.npm" % "ejs" % "2.5.2"
       ),
       scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>
         Seq(

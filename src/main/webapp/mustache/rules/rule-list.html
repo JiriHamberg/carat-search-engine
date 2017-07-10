@@ -1,0 +1,27 @@
+<!-- 
+	rules
+-->
+<script type="text/html">
+<ul>
+
+	{{#rules}}
+		<li>
+		{{#antecedents}}
+			<span>
+				{{.}}
+			</span>
+		{{/antecedents}}
+
+		<span> -> </span>
+
+		{{#consequents}}
+			<span>
+				{{.}}
+			</span>
+		{{/consequents}}
+
+		</li>
+	{{/rules}}
+
+</ul>
+</script>

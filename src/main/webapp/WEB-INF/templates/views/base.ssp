@@ -4,13 +4,20 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="${contextPath}/webjars/bootstrap/2.3.2/css/bootstrap.css">
+		
+		<link rel="stylesheet" type="text/css" href="${contextPath}/css/list-group-horizontal.css">
 
 		<script type="application/javascript" src="${contextPath}/webjars/jquery/3.2.1/jquery.min.js"></script>
+
+		<script type="application/javascript" src="${contextPath}/webjars/mustache/2.3.0/mustache.min.js"></script>
+
+		<script type="application/javascript" src="${contextPath}/js/SearchFormController/SearchFormController.js"></script>
+		<script type="application/javascript" src="${contextPath}/js/SearchFormController/Main.js"></script>
 
 		<title> Carat API Prototype </title>
 	</head>
 
-	<body onload="">
+	<body onload="Main.main()">
 		<% render("index.ssp") %>
 	</body>
 </html>
