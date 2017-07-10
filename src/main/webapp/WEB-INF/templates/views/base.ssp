@@ -2,10 +2,10 @@
 
 <!DOCTYPE html>
 <html>
-	<head data-context-path="${contextPath}">
-		<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/2.3.2/css/bootstrap.css"
+	<head>
+		<link rel="stylesheet" type="text/css" href="${contextPath}/webjars/bootstrap/2.3.2/css/bootstrap.css">
 
-		<script type="text/javascript" src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+		<script type="application/javascript" src="${contextPath}/webjars/jquery/3.2.1/jquery.min.js"></script>
 
 		<title> Carat API Prototype </title>
 	</head>

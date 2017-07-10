@@ -2,6 +2,7 @@ package caratAPIPrototype.services
 
 import scalaj.http.{Http, HttpOptions}
 import com.typesafe.config._
+import scala.concurrent.duration._
 
 
 object SparkDispatcher {
@@ -15,7 +16,7 @@ object SparkDispatcher {
 		val request = Http(s"${sparkBackendProtocol}://${sparkBackendAddr}:${sparkBackendPort}")
 			.header("Content-Type", "application/json")
 			.header("Charset", "UTF-8")
-			.option(HttpOptions.readTimeout(sparkBackendTimeout))
+			.option(HttpOptions.readTimeout(sparkBackendTimeout.seconds.toMillis.toInt))
 			.asString
 		request.body
 	}
