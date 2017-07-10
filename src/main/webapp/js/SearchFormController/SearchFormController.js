@@ -23,7 +23,7 @@ const SearchFormController = (function () {
 
 	const fetchRules = function(urlParams, ruleCallback) {
 		$.ajax({
-			url: "spark-submit",
+			url: contextPath + "/spark-submit",
 			type: "POST",
 			data: urlParams,
 			success: function(response) {
