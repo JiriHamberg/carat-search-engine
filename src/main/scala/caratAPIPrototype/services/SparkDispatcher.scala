@@ -16,6 +16,7 @@ object SparkDispatcher {
 		val request = Http(s"${sparkBackendProtocol}://${sparkBackendAddr}:${sparkBackendPort}")
 			.header("Content-Type", "application/json")
 			.header("Charset", "UTF-8")
+			.header("Accept", "application/json")
 			.option(HttpOptions.readTimeout(sparkBackendTimeout.seconds.toMillis.toInt))
 			.asString
 		request.body

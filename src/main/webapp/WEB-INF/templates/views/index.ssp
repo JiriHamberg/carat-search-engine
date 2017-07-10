@@ -1,4 +1,4 @@
-<h1> Carat Search Prototype </h1>
+<h1> Carat Search Engine </h1>
 <div>
 	<% render("spark_task_form.ssp") %>
 	<div id="rules"></div>

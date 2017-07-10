@@ -25,6 +25,7 @@ const SearchFormController = (function () {
 		$.ajax({
 			url: contextPath + "/spark-submit",
 			type: "POST",
+			dataType: "json",
 			data: urlParams,
 			success: function(response) {
 				ruleCallback(response);
