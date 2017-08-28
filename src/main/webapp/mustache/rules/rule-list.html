@@ -1,20 +1,27 @@
 <ul>
 
 	{{#rules}}
-		<li>
-		{{#antecedents}}
-			<span>
-				{{.}}
-			</span>
-		{{/antecedents}}
+		<li class="row">
 
-		<span> -> </span>
+      <div class="col-md-6">
+        {{#antecedents}}
+          <div>
+            {{.}}
+          </div>
+        {{/antecedents}}
+      </div>
 
-		{{#consequents}}
-			<span>
-				{{.}}
-			</span>
-		{{/consequents}}
+      <div class="col-md-2">
+        <span> -> </span>
+      </div>
+
+      <div class="col-md-4">
+        {{#consequents}}
+          <div>
+            {{.}}
+          </div>
+        {{/consequents}}
+      </div>
 
 		</li>
 	{{/rules}}

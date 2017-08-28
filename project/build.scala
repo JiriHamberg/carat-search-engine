@@ -37,7 +37,8 @@ object CarapAPIProtoBuild extends Build {
         //web jars - frontend libraries
         "org.webjars" % "bootstrap" % "2.3.2",
         "org.webjars" % "jquery" % "3.2.1",
-        "org.webjars.bower" % "mustache" % "2.3.0"
+        "org.webjars.bower" % "mustache" % "2.3.0",
+        "org.webjars" % "spin-js" % "2.0.0"
         //"org.webjars.npm" % "ejs" % "2.5.2"
       ),
       scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>

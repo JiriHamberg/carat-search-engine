@@ -22,16 +22,20 @@ const SearchFormController = (function () {
 	};
 
 	const fetchRules = function(urlParams, ruleCallback) {
-		$.ajax({
+		$("#rules").spin(); //run spinner while request is being processed
+    $.ajax({
 			url: contextPath + "/spark-submit",
 			type: "POST",
 			dataType: "json",
 			data: urlParams,
 			success: function(response) {
+        $("#rules").data('spinner').stop(); //stop spinner
 				ruleCallback(response);
 			},
 			error: function(xhr) {
+        $("#rules").data('spinner').stop(); //stop spinner
 				console.log("SearchFormController: failed to fetch data")
+        alert("Backend responded with error code " + xhr.status);
 			}
 		});
 	};
