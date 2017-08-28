@@ -1,4 +1,4 @@
-<ul>
+<!--<ul>
 
 	{{#rules}}
 		<li class="row">
@@ -26,4 +26,37 @@
 		</li>
 	{{/rules}}
 
-</ul>
+</ul>-->
+
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Antecedents</th>
+        <th>Consequents</th>
+        <th>Confidence</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#rules}}
+        <tr>
+          <td>
+            {{#antecedents}}
+              <div>
+                {{.}}
+              </div>
+            {{/antecedents}}
+          </td>
+          <td>
+            {{#consequents}}
+              <div>
+                {{.}}
+              </div>
+            {{/consequents}}
+          </td>
+          <td>
+            {{confidence}}
+          </td>
+        </tr>
+      {{/rules}}
+   </tbody>
+</table>
