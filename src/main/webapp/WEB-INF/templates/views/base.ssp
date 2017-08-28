@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="${contextPath}/webjars/bootstrap/2.3.2/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="${contextPath}/webjars/bootstrap/2.3.2/css/bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="${contextPath}/webjars/bootstrap/3.2.0/css/bootstrap.css">
+    <!--<link rel="stylesheet" type="text/css" href="${contextPath}/webjars/bootstrap/3.2.0/css/bootstrap-responsive.css">-->
 
 		<link rel="stylesheet" type="text/css" href="${contextPath}/css/list-group-horizontal.css">
 
-    <script type="application/javascript" src="${contextPath}/webjars/bootstrap/2.3.2/js/bootstrap.js"></script>
-		<script type="application/javascript" src="${contextPath}/webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script type="application/javascript" src="${contextPath}/webjars/jquery/3.2.0/jquery.min.js"></script>
+    <script type="application/javascript" src="${contextPath}/webjars/bootstrap/3.2.0/js/bootstrap.js"></script>
 		<script type="application/javascript" src="${contextPath}/webjars/mustache/2.3.0/mustache.min.js"></script>
     <script type="application/javascript" src="${contextPath}/webjars/spin-js/2.0.0/spin.js"></script>
     <script type="application/javascript" src="${contextPath}/webjars/spin-js/2.0.0/jquery.spin.js"></script>
