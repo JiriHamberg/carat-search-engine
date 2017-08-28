@@ -22,6 +22,7 @@ const SearchFormController = (function () {
 	};
 
 	const fetchRules = function(urlParams, ruleCallback) {
+    $("#rules").empty(); //remove existing rule listing
 		$("#rules").spin(); //run spinner while request is being processed
     $.ajax({
 			url: contextPath + "/spark-submit",
