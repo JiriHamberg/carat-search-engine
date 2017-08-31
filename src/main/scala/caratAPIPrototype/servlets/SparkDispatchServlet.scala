@@ -29,8 +29,8 @@ class SparkDispatchServlet extends ScalatraServlet with ScalateSupport with Futu
 
 	post("/") {
       contentType = formats("json")
-      val requestOptions = parsedBody.extract[SparkJobOptions]
-	    Future(SparkDispatcher.postRequest(requestOptions))
+      val sparkJobOptions = parsedBody.extract[SparkJobOptions]
+	    Future(SparkDispatcher.postRequest(sparkJobOptions))
   	}
 
 }

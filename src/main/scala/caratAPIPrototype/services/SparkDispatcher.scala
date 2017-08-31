@@ -18,14 +18,14 @@ object SparkDispatcher {
 	val sparkBackendPort = conf.getString("spark-server.port")
 	val sparkBackendTimeout = conf.getInt("spark-server.timeout")
 
-	def postRequest(options: SparkJobOptions): String = {
+	def postRequest(sparkJobOptions: SparkJobOptions): String = {
 		val request = Http(s"${sparkBackendProtocol}://${sparkBackendAddr}:${sparkBackendPort}")
 			.header("Content-Type", "application/json")
 			.header("Charset", "UTF-8")
 			.header("Accept", "application/json")
 			.option(HttpOptions.readTimeout(sparkBackendTimeout.seconds.toMillis.toInt))
-      .param("minSupport", options.minSupport.map(_.toString).getOrElse(""))
-      .param("minConfidence", options.minConfidence.map(_.toString).getOrElse(""))
+      .param("minSupport", sparkJobOptions.minSupport.map(_.toString).getOrElse(""))
+      .param("minConfidence", sparkJobOptions.minConfidence.map(_.toString).getOrElse(""))
 			.asString
 		request.body
 	}
