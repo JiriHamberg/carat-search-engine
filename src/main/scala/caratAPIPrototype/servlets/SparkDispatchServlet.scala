@@ -29,7 +29,7 @@ class SparkDispatchServlet extends ScalatraServlet with FutureSupport with Jacks
 
 	implicit val executor =  ExecutionContext.global
 	override val asyncTimeout = conf.getInt("spark-server.timeout") seconds
-  protected implicit val jsonFormats: Formats = DefaultFormats
+  protected implicit lazy val jsonFormats: Formats = DefaultFormats
 
 	post("/") {
       contentType = formats("json")
