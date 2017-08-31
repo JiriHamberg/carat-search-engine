@@ -18,9 +18,9 @@ import org.scalatra.json._
 import org.json4s.JsonDSL._
 
 case class SparkJobOptions(
+  excluded: List[String],
   minSupport: Option[Double],
-  minConfidence: Option[Double],
-  excluded: List[String]
+  minConfidence: Option[Double]
 )
 
 class SparkDispatchServlet extends ScalatraServlet with JacksonJsonSupport with FutureSupport {
