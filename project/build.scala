@@ -10,7 +10,7 @@ object CarapAPIProtoBuild extends Build {
   val Organization = "Carat"
   val Name = "Carat API Prototype"
   val Version = "0.1.0-SNAPSHOT"
-  val ScalaVersion = "2.11.5"
+  val ScalaVersion = "2.10.4"
   val ScalatraVersion = "2.4.0.M2"
 
   lazy val project = Project (
@@ -39,7 +39,7 @@ object CarapAPIProtoBuild extends Build {
         "org.json4s"   %% "json4s-jackson" % "3.2.9",
         "org.json4s"  %% "json4s-native" % "3.2.9",
         "com.typesafe" % "config" % "1.3.1",
-        "org.scalaj" % "scalaj-http_2.11" % "2.3.0",
+        "org.scalaj" % "scalaj-http_2.10" % "2.3.0",
         //web jars - frontend libraries
         "org.webjars" % "bootstrap" % "3.2.0",
         "org.webjars" % "jquery" % "3.2.0",
