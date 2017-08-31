@@ -19,7 +19,7 @@ import org.scalatra.json._
 
 import caratAPIPrototype.services.SparkJobOptions
 
-class SparkDispatchServlet extends ScalatraServlet with ScalateSupport with FutureSupport with JacksonJsonSupport {
+class SparkDispatchServlet extends ScalatraServlet with FutureSupport with JacksonJsonSupport {
 
 	val conf = ConfigFactory.load()
 
