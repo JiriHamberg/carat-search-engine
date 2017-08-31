@@ -17,7 +17,11 @@ import org.fusesource.scalate.layout.DefaultLayoutStrategy
 import org.json4s.{DefaultFormats, Formats}
 import org.scalatra.json._
 
-import caratAPIPrototype.services.SparkJobOptions
+
+case class SparkJobOptions(
+  minSupport: Option[Double],
+  minConfidence: Option[Double]
+)
 
 class SparkDispatchServlet extends ScalatraServlet with FutureSupport with JacksonJsonSupport {
 

@@ -4,12 +4,7 @@ import scalaj.http.{Http, HttpOptions}
 import com.typesafe.config._
 import scala.concurrent.duration._
 
-
-case class SparkJobOptions(
-  minSupport: Option[Double],
-  minConfidence: Option[Double]
-)
-
+import caratAPIPrototype.servlets.SparkJobOptions
 
 object SparkDispatcher {
 	val conf = ConfigFactory.load()
