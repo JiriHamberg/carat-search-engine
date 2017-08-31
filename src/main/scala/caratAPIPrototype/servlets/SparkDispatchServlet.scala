@@ -13,9 +13,9 @@ import org.scalatra._
 import org.scalatra.FutureSupport
 
 import org.json4s.{DefaultFormats, Formats}
-import org.json4s.JsonAST.{JValue}
+//import org.json4s.JsonAST.{JValue}
 import org.scalatra.json._
-import org.json4s.JsonDSL._
+//import org.json4s.JsonDSL._
 
 case class SparkJobOptions(
   minSupport: Option[Double],
@@ -24,7 +24,7 @@ case class SparkJobOptions(
 )
 
 class SparkDispatchServlet extends ScalatraServlet with JacksonJsonSupport with FutureSupport {
-  protected implicit val jsonFormats: Formats = DefaultFormats
+  protected implicit lazy val jsonFormats: Formats = DefaultFormats
 	implicit val executor =  ExecutionContext.global
   val conf = ConfigFactory.load()
 	override val asyncTimeout = conf.getInt("spark-server.timeout") seconds

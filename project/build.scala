@@ -3,15 +3,16 @@ import Keys._
 import org.scalatra.sbt._
 import org.scalatra.sbt.PluginKeys._
 import com.earldouglas.xwp.JettyPlugin
-import com.mojolly.scalate.ScalatePlugin._
+//import com.mojolly.scalate.ScalatePlugin._
+import skinny.scalate.ScalatePlugin._
 import ScalateKeys._
 
 object CarapAPIProtoBuild extends Build {
   val Organization = "Carat"
   val Name = "Carat API Prototype"
   val Version = "0.1.0-SNAPSHOT"
-  val ScalaVersion = "2.10.4"
-  val ScalatraVersion = "2.4.0.M2"
+  val ScalaVersion = "2.12.0"
+  val ScalatraVersion = "2.5.1"
 
   lazy val project = Project (
     "CaratAPIPrototype",
@@ -35,11 +36,11 @@ object CarapAPIProtoBuild extends Build {
         //"org.scalatra" %% "scalatra-json" %  ScalatraVersion,
         //"org.json4s"   %% "json4s-jackson" % "3.3.0",
         //"org.json4s"   %% "json4s-jackson" % "3.5.0",
-        "org.scalatra" %% "scalatra-json" % "2.4.0",
-        "org.json4s"   %% "json4s-jackson" % "3.3.0",
-        "org.json4s"  %% "json4s-native" % "3.3.0",
+        "org.scalatra" %% "scalatra-json" % ScalatraVersion,
+        "org.json4s"   %% "json4s-jackson" % "3.5.0",
+        //"org.json4s"  %% "json4s-native" % "3.3.0",
         "com.typesafe" % "config" % "1.3.1",
-        "org.scalaj" % "scalaj-http_2.10" % "2.3.0",
+        "org.scalaj" % "scalaj-http_2.12" % "2.3.0",
         //web jars - frontend libraries
         "org.webjars" % "bootstrap" % "3.2.0",
         "org.webjars" % "jquery" % "3.2.0",
