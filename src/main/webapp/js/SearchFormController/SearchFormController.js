@@ -11,25 +11,26 @@ const SearchFormController = (function () {
 		$form.on("submit", function(event) {
 			event.preventDefault();
 
-			var urlParams = {};
+			var options = {};
 
 			$("#" + formId + " input").each(function() {
-				urlParams[$(this).attr('id')] = $(this).val();
+				options[$(this).attr('id')] = parseFloat($(this).val());
 			});
 			$form.trigger('reset');
-			fetchRules(urlParams, ruleCallback)
+			fetchRules(options, ruleCallback)
 		});
 	};
 
-	const fetchRules = function(urlParams, ruleCallback) {
+	const fetchRules = function(options, ruleCallback) {
     $("#rules").empty(); //remove existing rule listing
 		$("#rules").spin(); //run spinner while request is being processed
-    console.log(urlParams);
+    console.log(options);
     $.ajax({
 			url: contextPath + "/spark-submit",
 			type: "POST",
 			dataType: "json",
-			data: urlParams,
+      contentType: 'application/json; charset=utf-8',
+			data: JSON.stringify(options),
 			success: function(response) {
         $("#rules").data('spinner').stop(); //stop spinner
 				ruleCallback(response);

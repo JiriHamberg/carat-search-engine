@@ -40,7 +40,8 @@ class SparkDispatchServlet extends ScalatraServlet with JacksonJsonSupport with 
 	post("/") {
       //contentType = formats("json")
       val sparkJobOptions = parsedBody.extract[SparkJobOptions]
-
+      println("pared options:")
+      println(sparkJobOptions)
     /*val sparkJobOptions = SparkJobOptions(
         request.body(minSupport),
         request.body(minConfidence)
