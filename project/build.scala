@@ -36,8 +36,8 @@ object CarapAPIProtoBuild extends Build {
         //"org.json4s"   %% "json4s-jackson" % "3.3.0",
         //"org.json4s"   %% "json4s-jackson" % "3.5.0",
         "org.scalatra" %% "scalatra-json" % "2.3.0",
-        "org.json4s"   %% "json4s-jackson" % "3.2.11",
-        "org.json4s"  %% "json4s-native" % "3.2.11",
+        "org.json4s"   %% "json4s-jackson" % "3.5.3",
+        "org.json4s"  %% "json4s-native" % "3.5.3",
         "com.typesafe" % "config" % "1.3.1",
         "org.scalaj" % "scalaj-http_2.10" % "2.3.0",
         //web jars - frontend libraries
