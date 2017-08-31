@@ -11,7 +11,7 @@ object CarapAPIProtoBuild extends Build {
   val Name = "Carat API Prototype"
   val Version = "0.1.0-SNAPSHOT"
   val ScalaVersion = "2.11.7"
-  val ScalatraVersion = "2.4.0"
+  val ScalatraVersion = "2.5.0"
 
   lazy val project = Project (
     "CaratAPIPrototype",

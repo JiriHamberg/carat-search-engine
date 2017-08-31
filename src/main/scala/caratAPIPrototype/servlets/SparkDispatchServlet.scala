@@ -11,9 +11,6 @@ import com.typesafe.config._
 
 import org.scalatra._
 import org.scalatra.FutureSupport
-//import scalate.ScalateSupport
-//import org.fusesource.scalate.{ TemplateEngine, Binding }
-//import org.fusesource.scalate.layout.DefaultLayoutStrategy
 import org.json4s.{DefaultFormats, Formats}
 import org.scalatra.json._
 
