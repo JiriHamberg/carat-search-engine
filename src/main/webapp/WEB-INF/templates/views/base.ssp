@@ -21,7 +21,6 @@
 			var contextPath = "${contextPath}";
 		</script
 
-		<title> Carat API Prototype </title>
 	</head>
 
 	<body onload="Main.main()">

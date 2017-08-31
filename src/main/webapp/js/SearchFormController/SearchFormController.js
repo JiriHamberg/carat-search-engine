@@ -13,8 +13,8 @@ const SearchFormController = (function () {
 
 			var urlParams = {};
 
-			$("#" + formId + " :input").each(function() {
-				urlParams[this.name] = $(this).val();
+			$("#" + formId + " input").each(function() {
+				urlParams[$(this).attr('id')] = $(this).val();
 			});
 			$form.trigger('reset');
 			fetchRules(urlParams, ruleCallback)
@@ -24,6 +24,7 @@ const SearchFormController = (function () {
 	const fetchRules = function(urlParams, ruleCallback) {
     $("#rules").empty(); //remove existing rule listing
 		$("#rules").spin(); //run spinner while request is being processed
+    console.log(urlParams);
     $.ajax({
 			url: contextPath + "/spark-submit",
 			type: "POST",

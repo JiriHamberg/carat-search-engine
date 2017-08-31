@@ -14,19 +14,23 @@ import org.scalatra.FutureSupport
 import scalate.ScalateSupport
 import org.fusesource.scalate.{ TemplateEngine, Binding }
 import org.fusesource.scalate.layout.DefaultLayoutStrategy
+import org.json4s.{DefaultFormats, Formats}
+import org.scalatra.json._
 
-class SparkDispatchServlet extends ScalatraServlet with ScalateSupport with FutureSupport{
+import caratAPIPrototype.services.SparkJobOptions
+
+class SparkDispatchServlet extends ScalatraServlet with ScalateSupport with FutureSupport with JacksonJsonSupport {
 
 	val conf = ConfigFactory.load()
 
 	implicit val executor =  ExecutionContext.global
 	override val asyncTimeout = conf.getInt("spark-server.timeout") seconds
+  protected implicit val jsonFormats: Formats = DefaultFormats
 
 	post("/") {
-	    contentType = "text/html"
-	    Future(SparkDispatcher.postRequest())
-	    //Future("HELLO FROM DISPATCHER")
-    	//ssp("/base", "layout" -> "", "contextPath" -> request.getContextPath())
+      contentType = formats("json")
+      val requestOptions = parsedBody.extract[SparkJobOptions]
+	    Future(SparkDispatcher.postRequest(requestOptions))
   	}
 
 }
