@@ -21,7 +21,7 @@ object SparkDispatcher {
 			.option(HttpOptions.readTimeout(sparkBackendTimeout.seconds.toMillis.toInt))
       .param("minSupport", sparkJobOptions.minSupport.map(_.toString).getOrElse(""))
       .param("minConfidence", sparkJobOptions.minConfidence.map(_.toString).getOrElse(""))
-      .param("excluded", sparkJobOptions.excluded.mkString(",")
+      .param("excluded", sparkJobOptions.excluded.mkString(","))
 			.asString
 		request.body
 	}
