@@ -26,17 +26,27 @@ case class SparkJobOptions(
   minConfidence: Option[Double]
 )
 
-class SparkDispatchServlet extends ScalatraServlet with FutureSupport with JacksonJsonSupport {
-
-	val conf = ConfigFactory.load()
-
+class SparkDispatchServlet extends ScalatraServlet with JacksonJsonSupport with FutureSupport {
+  protected implicit val jsonFormats: Formats = DefaultFormats
 	implicit val executor =  ExecutionContext.global
+  val conf = ConfigFactory.load()
 	override val asyncTimeout = conf.getInt("spark-server.timeout") seconds
-  protected implicit lazy val jsonFormats: Formats = DefaultFormats
+  //protected implicit lazy val jsonFormats: Formats = DefaultFormats
+
+  before() {
+    contentType = formats("json")
+  }
 
 	post("/") {
-      contentType = formats("json")
+      //contentType = formats("json")
       val sparkJobOptions = parsedBody.extract[SparkJobOptions]
+
+    /*val sparkJobOptions = SparkJobOptions(
+        request.body(minSupport),
+        request.body(minConfidence)
+      )*/
+
+
 	    Future(SparkDispatcher.postRequest(sparkJobOptions))
   	}
 
