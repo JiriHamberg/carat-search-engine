@@ -24,8 +24,8 @@ object SparkDispatcher {
 			.header("Charset", "UTF-8")
 			.header("Accept", "application/json")
 			.option(HttpOptions.readTimeout(sparkBackendTimeout.seconds.toMillis.toInt))
-      //.param("minSupport", sparkJobOptions.minSupport.map(_.toString).getOrElse(""))
-      //.param("minConfidence", sparkJobOptions.minConfidence.map(_.toString).getOrElse(""))
+      .param("minSupport", sparkJobOptions.minSupport.map(_.toString).getOrElse(""))
+      .param("minConfidence", sparkJobOptions.minConfidence.map(_.toString).getOrElse(""))
 			.asString
 		request.body
 	}
