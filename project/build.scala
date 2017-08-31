@@ -33,7 +33,8 @@ object CarapAPIProtoBuild extends Build {
         "org.eclipse.jetty" % "jetty-webapp" % "9.2.15.v20160210" % "container",
         "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided",
         "org.scalatra" %% "scalatra-json" %  ScalatraVersion,
-        "org.json4s"   %% "json4s-jackson" % "3.3.0",
+        //"org.json4s"   %% "json4s-jackson" % "3.3.0",
+        "org.json4s"   %% "json4s-jackson" % "3.5.0",
         "com.typesafe" % "config" % "1.3.1",
         "org.scalaj" % "scalaj-http_2.11" % "2.3.0",
         //web jars - frontend libraries
