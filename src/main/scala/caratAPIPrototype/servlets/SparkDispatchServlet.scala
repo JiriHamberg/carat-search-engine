@@ -15,7 +15,7 @@ import org.scalatra.FutureSupport
 import org.json4s.{DefaultFormats, Formats}
 import org.json4s.JsonAST.{JValue}
 import org.scalatra.json._
-import org.json4s.JsonDSL.
+import org.json4s.JsonDSL._
 
 //import org.json4s.{DefaultFormats, Formats}
 //import org.scalatra.json._
