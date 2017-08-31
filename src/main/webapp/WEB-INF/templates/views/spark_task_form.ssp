@@ -7,5 +7,34 @@
     <label for="minConfidence">Min Confidence</label>
     <input type="number" step="any" min="0" max="1" class="form-control" id="minConfidence" />
   </div>
+
+  <div class="checkbox">
+    <label><input type="checkbox" value="cpu">Exclude CPU Usage</label>
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox" value="temp">Exclude Battery Temperature</label>
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox" value="distance">Exclude Travel Distance</label>
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox" value="voltage">Exclude Battery Voltage</label>
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox" value="screen">Exclude Screen Brightness</label>
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox" value="mobileNetType">Exclude Mobile Network Type</label>
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox" value="netType">Exclude Network Type</label>
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox" value="wifiStrength">Exclude WiFi Strength</label>
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox" value="wifiSpeed">Exclude WiFi Speed</label>
+  </div>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

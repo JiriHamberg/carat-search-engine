@@ -13,10 +13,18 @@ const SearchFormController = (function () {
 
 			var options = {};
 
-			$("#" + formId + " input").each(function() {
+			$("#" + formId + " input[type=number]").each(function() {
 				options[$(this).attr('id')] = parseFloat($(this).val());
 			});
-			$form.trigger('reset');
+
+      var excluded = [];
+
+      $("#" + formId + " input[type=checkbox]:checked").each(function() {
+        excluded.push($(this).val());
+      });
+      options.excluded = excluded;
+
+			//$form.trigger('reset');
 			fetchRules(options, ruleCallback)
 		});
 	};
