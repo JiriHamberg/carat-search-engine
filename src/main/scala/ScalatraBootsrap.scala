@@ -5,7 +5,12 @@ import javax.servlet.ServletContext
 
 class ScalatraBootstrap extends LifeCycle {
   override def init(context: ServletContext) {
+
+    if(scala.util.Properties.envOrElse("SCALATRA_ENVIRONMENT", "") == "development") {
+      context.initParameters("org.scalatra.environment") = "development"
+    }
+
     context.mount(new MainServlet, "/*")
-    context.mount(new SparkDispatchServlet, "/spark-submit")
+    context.mount(new SparkDispatchServlet(context), "/spark-submit")
   }
 }

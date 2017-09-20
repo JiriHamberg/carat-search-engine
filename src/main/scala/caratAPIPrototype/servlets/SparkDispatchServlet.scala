@@ -17,13 +17,15 @@ import org.json4s.{DefaultFormats, Formats}
 import org.scalatra.json._
 //import org.json4s.JsonDSL._
 
+import javax.servlet.ServletContext
+
 case class SparkJobOptions(
   minSupport: Option[Double],
   minConfidence: Option[Double],
   excluded: List[String]
 )
 
-class SparkDispatchServlet extends ScalatraServlet with JacksonJsonSupport with FutureSupport {
+class SparkDispatchServlet(context: ServletContext) extends ScalatraServlet with JacksonJsonSupport with FutureSupport {
   protected implicit lazy val jsonFormats: Formats = DefaultFormats
 	implicit val executor =  ExecutionContext.global
   val conf = ConfigFactory.load()
@@ -34,8 +36,13 @@ class SparkDispatchServlet extends ScalatraServlet with JacksonJsonSupport with 
   }
 
 	post("/") {
-      val sparkJobOptions = parsedBody.extract[SparkJobOptions]
-	    Future(SparkDispatcher.postRequest(sparkJobOptions))
-  	}
+    val sparkJobOptions = parsedBody.extract[SparkJobOptions]
+
+    if(context.initParameters("org.scalatra.environment") == "development") {
+      Future(SparkDispatcher.mockRequest(sparkJobOptions))
+    } else {
+      Future(SparkDispatcher.postRequest(sparkJobOptions))
+    }
+  }
 
 }

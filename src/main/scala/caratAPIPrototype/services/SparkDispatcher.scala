@@ -26,5 +26,10 @@ object SparkDispatcher {
 		request.body
 	}
 
+  def mockRequest(sparkJobOptions: SparkJobOptions): String = {
+    Thread.sleep(5000)
+    scala.io.Source.fromFile("src/main/resources/example_rules.json").mkString
+  }
+
 }
 
