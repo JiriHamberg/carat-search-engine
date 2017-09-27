@@ -44,7 +44,8 @@ object CarapAPIProtoBuild extends Build {
         //web jars - frontend libraries
         "org.webjars" % "bootstrap" % "3.2.0",
         "org.webjars" % "jquery" % "3.2.0",
-        "org.webjars.bower" % "mustache" % "2.3.0",
+        //"org.webjars.bower" % "mustache" % "2.3.0",
+        "org.webjars" % "handlebars" % "4.0.5",
         "org.webjars" % "spin-js" % "2.0.0"
         //"org.webjars.npm" % "ejs" % "2.5.2"
       ),

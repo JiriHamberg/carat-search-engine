@@ -10,7 +10,8 @@
 
     <script type="application/javascript" src="${contextPath}/webjars/jquery/3.2.0/jquery.min.js"></script>
     <script type="application/javascript" src="${contextPath}/webjars/bootstrap/3.2.0/js/bootstrap.js"></script>
-		<script type="application/javascript" src="${contextPath}/webjars/mustache/2.3.0/mustache.min.js"></script>
+		<!--<script type="application/javascript" src="${contextPath}/webjars/mustache/2.3.0/mustache.min.js"></script>-->
+    <script type="application/javascript" src="${contextPath}/webjars/handlebars/4.0.5/handlebars.min.js"></script>
     <script type="application/javascript" src="${contextPath}/webjars/spin-js/2.0.0/spin.js"></script>
     <script type="application/javascript" src="${contextPath}/webjars/spin-js/2.0.0/jquery.spin.js"></script>
 
