@@ -27,6 +27,7 @@ const SearchFormController = (function () {
 			//$form.trigger('reset');
 			fetchRules(options, ruleCallback)
 		});
+
 	};
 
 	const fetchRules = function(options, ruleCallback) {

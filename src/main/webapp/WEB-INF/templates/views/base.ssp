@@ -15,6 +15,7 @@
     <script type="application/javascript" src="${contextPath}/webjars/spin-js/2.0.0/spin.js"></script>
     <script type="application/javascript" src="${contextPath}/webjars/spin-js/2.0.0/jquery.spin.js"></script>
 
+    <script type="application/javascript" src="${contextPath}/js/Handlebars/Helpers.js"></script>
 		<script type="application/javascript" src="${contextPath}/js/SearchFormController/SearchFormController.js"></script>
 		<script type="application/javascript" src="${contextPath}/js/SearchFormController/Main.js"></script>
 

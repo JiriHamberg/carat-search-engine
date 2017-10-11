@@ -2,6 +2,8 @@ const Main = (function() {
 
 	var main = function() {
 
+    Helpers.registerHelpers();
+
 		SearchFormController.init('rule-search-form', function(data) {
 			//console.log(data);
 			$.get(contextPath + "/mustache/rules/rule-list.html", function(template) {
