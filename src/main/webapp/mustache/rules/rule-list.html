@@ -11,11 +11,13 @@
   {{/each}}
 </ul>-->
 
-{{#rate-bin-selector bins.rate}}{{/rate-bin-selector}}
+<!--{{#rate-bin-selector bins.rate}}{{/rate-bin-selector}}
 
 <h4>
   Found {{rules.length}} rules in {{executionTime}} milliseconds
 </h4>
+-->
+
 
  <table class="table table-striped">
     <thead>
@@ -30,20 +32,23 @@
         <tr>
           <td>
             {{#antecedents}}
-              <div>
+              <!--<div>
                 {{.}}
-              </div>
+              </div>-->
 
               <div>
-                {{#render-item . bins }} {{/render-item}}
+                {{#render-item . ../../bins }} {{/render-item}}
               </div>
 
             {{/antecedents}}
           </td>
           <td>
             {{#consequents}}
-              <div>
+              <!--<div>
                 {{.}}
+              </div>-->
+              <div>
+                {{#render-item . ../../bins}} {{/render-item}}
               </div>
             {{/consequents}}
           </td>
