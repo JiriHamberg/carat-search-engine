@@ -42,11 +42,13 @@ object CarapAPIProtoBuild extends Build {
         "com.typesafe" % "config" % "1.3.1",
         "org.scalaj" % "scalaj-http_2.12" % "2.3.0",
         //web jars - frontend libraries
+        "org.webjars" % "lodash" % "4.17.4",
         "org.webjars" % "bootstrap" % "3.2.0",
         "org.webjars" % "jquery" % "3.2.0",
         //"org.webjars.bower" % "mustache" % "2.3.0",
         "org.webjars" % "handlebars" % "4.0.5",
-        "org.webjars" % "spin-js" % "2.0.0"
+        "org.webjars" % "spin-js" % "2.0.0",
+        "org.webjars" % "selectize.js" % "0.12.4"
         //"org.webjars.npm" % "ejs" % "2.5.2"
       ),
       scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>
