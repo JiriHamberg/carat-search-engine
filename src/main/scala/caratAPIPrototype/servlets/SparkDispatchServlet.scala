@@ -20,6 +20,7 @@ import org.scalatra.json._
 import javax.servlet.ServletContext
 
 case class SparkJobOptions(
+  applicationName: String,
   minSupport: Option[Double],
   minConfidence: Option[Double],
   excluded: List[String]
