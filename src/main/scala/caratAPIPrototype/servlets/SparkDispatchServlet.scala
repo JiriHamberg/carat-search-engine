@@ -2,6 +2,7 @@
 package caratAPIPrototype.servlets
 
 import caratAPIPrototype.services.SparkDispatcher
+import caratAPIPrototype.services.SparkJobOptions
 //import caratAPIPrototype.services.SparkJobOptions
 
 import scala.util.{ Try, Success, Failure }
@@ -31,7 +32,7 @@ class SparkDispatchServlet(context: ServletContext) extends ScalatraServlet with
   }
 
 	post("/") {
-    val maybeSparkJobOptions = Try(parsedBody.extract[SparkDispatcher.SparkJobOptions])
+    val maybeSparkJobOptions = Try(parsedBody.extract[SparkJobOptions])
 
     maybeSparkJobOptions match {
 

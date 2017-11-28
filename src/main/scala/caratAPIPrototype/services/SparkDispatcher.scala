@@ -4,14 +4,14 @@ import scalaj.http.{Http, HttpOptions}
 import com.typesafe.config._
 import scala.concurrent.duration._
 
-object SparkDispatcher {
+case class SparkJobOptions(
+  applicationName: String,
+  minSupport: Option[Double],
+  minConfidence: Option[Double],
+  excluded: List[String]
+)
 
-  case class SparkJobOptions(
-    applicationName: String,
-    minSupport: Option[Double],
-    minConfidence: Option[Double],
-    excluded: List[String]
-  )
+object SparkDispatcher {
 
 	val conf = ConfigFactory.load()
 	val sparkBackendProtocol = conf.getString("spark-server.protocol")
