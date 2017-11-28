@@ -4,7 +4,7 @@ package caratAPIPrototype.servlets
 import caratAPIPrototype.services.SparkDispatcher
 //import caratAPIPrototype.services.SparkJobOptions
 
-import scala.util.Try
+import scala.util.{ Try, Success, Failure }
 import scala.concurrent.{Future, ExecutionContext}
 import scala.concurrent.duration._
 
@@ -31,15 +31,31 @@ class SparkDispatchServlet(context: ServletContext) extends ScalatraServlet with
   }
 
 	post("/") {
-    val sparkJobOptions = parsedBody.extract[SparkDispatcher.SparkJobOptions]
+    val maybeSparkJobOptions = Try(parsedBody.extract[SparkDispatcher.SparkJobOptions])
 
-    if(context.initParameters("org.scalatra.environment") == "development") {
+    maybeSparkJobOptions match {
+
+      case Success(sparkJobOptions) =>
+
+        if(context.initParameters("org.scalatra.environment") == "development") {
+          Future(SparkDispatcher.mockRequest(sparkJobOptions))
+        } else {
+          Future(SparkDispatcher.postRequest(sparkJobOptions)) recoverWith {
+            case e: Exception => Future(InternalServerError(e.getMessage + "\n" + e.getStackTrace.mkString("\n")))
+          }
+        }
+
+     case Failure(e) => Future(InternalServerError(e.getMessage + "\n" + e.getStackTrace.mkString("\n")))
+
+    }
+
+    /*if(context.initParameters("org.scalatra.environment") == "development") {
       Future(SparkDispatcher.mockRequest(sparkJobOptions))
     } else {
       Future(SparkDispatcher.postRequest(sparkJobOptions)) recoverWith {
         case e: Exception => Future(InternalServerError(e.getMessage + "\n" + e.getStackTrace.mkString("\n")))
       }
-    }
+    }*/
   }
 
 }
