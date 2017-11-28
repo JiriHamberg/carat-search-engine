@@ -2,6 +2,7 @@
 package caratAPIPrototype.servlets
 
 import caratAPIPrototype.services.SparkDispatcher
+//import caratAPIPrototype.services.SparkJobOptions
 
 import scala.util.Try
 import scala.concurrent.{Future, ExecutionContext}
@@ -19,13 +20,6 @@ import org.scalatra.json._
 
 import javax.servlet.ServletContext
 
-case class SparkJobOptions(
-  applicationName: String,
-  minSupport: Option[Double],
-  minConfidence: Option[Double],
-  excluded: List[String]
-)
-
 class SparkDispatchServlet(context: ServletContext) extends ScalatraServlet with JacksonJsonSupport with FutureSupport {
   protected implicit lazy val jsonFormats: Formats = DefaultFormats
 	implicit val executor =  ExecutionContext.global
@@ -37,12 +31,14 @@ class SparkDispatchServlet(context: ServletContext) extends ScalatraServlet with
   }
 
 	post("/") {
-    val sparkJobOptions = parsedBody.extract[SparkJobOptions]
+    val sparkJobOptions = parsedBody.extract[SparkDispatcher.SparkJobOptions]
 
     if(context.initParameters("org.scalatra.environment") == "development") {
       Future(SparkDispatcher.mockRequest(sparkJobOptions))
     } else {
-      Future(SparkDispatcher.postRequest(sparkJobOptions))
+      Future(SparkDispatcher.postRequest(sparkJobOptions)) recoverWith {
+        case e: Exception => Future(InternalServerError(e.getMessage + "\n" + e.getStackTrace.mkString("\n")))
+      }
     }
   }
 

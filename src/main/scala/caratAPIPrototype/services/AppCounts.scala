@@ -10,8 +10,6 @@ import org.json4s.jackson.JsonMethods._
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext
 
-import caratAPIPrototype.servlets.SparkJobOptions
-
 object AppCounts {
 	implicit val formats = org.json4s.DefaultFormats
   implicit val executor = ExecutionContext.global
