@@ -91,6 +91,7 @@ const SearchFormController = (function () {
     const errorCallback = function(response) {
       $("#rule-spinner").data('spinner').stop(); //stop spinner
 			console.log("SearchFormController: failed to fetch data")
+      console.log(response);
       alert("Backend responded with error code " + response.status);
     };
 
