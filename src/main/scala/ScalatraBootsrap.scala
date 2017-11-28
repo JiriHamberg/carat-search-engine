@@ -8,6 +8,8 @@ class ScalatraBootstrap extends LifeCycle {
 
     if(scala.util.Properties.envOrElse("SCALATRA_ENVIRONMENT", "") == "development") {
       context.initParameters("org.scalatra.environment") = "development"
+    } else {
+      context.initParameters("org.scalatra.environment") = "production"
     }
 
     context.mount(new MainServlet, "/*")
