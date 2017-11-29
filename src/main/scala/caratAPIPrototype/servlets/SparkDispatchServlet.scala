@@ -25,7 +25,7 @@ class SparkDispatchServlet(context: ServletContext) extends ScalatraServlet with
   protected implicit lazy val jsonFormats: Formats = DefaultFormats
 	implicit val executor =  ExecutionContext.global
   val conf = ConfigFactory.load()
-	override val asyncTimeout = conf.getInt("spark-server.timeout") seconds
+	//override val asyncTimeout = conf.getInt("spark-server.timeout") seconds
 
   before() {
     contentType = formats("json")

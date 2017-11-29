@@ -12,7 +12,7 @@ object CarapAPIProtoBuild extends Build {
   val Name = "Carat API Prototype"
   val Version = "0.1.0-SNAPSHOT"
   val ScalaVersion = "2.12.0"
-  val ScalatraVersion = "2.5.1"
+  val ScalatraVersion = "2.6.2"
 
   lazy val project = Project (
     "CaratAPIPrototype",
@@ -37,7 +37,7 @@ object CarapAPIProtoBuild extends Build {
         //"org.json4s"   %% "json4s-jackson" % "3.3.0",
         //"org.json4s"   %% "json4s-jackson" % "3.5.0",
         "org.scalatra" %% "scalatra-json" % ScalatraVersion,
-        "org.json4s"   %% "json4s-jackson" % "3.5.0",
+        "org.json4s"   %% "json4s-jackson" % "3.5.3",
         //"org.json4s"  %% "json4s-native" % "3.3.0",
         "com.typesafe" % "config" % "1.3.1",
         "org.scalaj" % "scalaj-http_2.12" % "2.3.0",
