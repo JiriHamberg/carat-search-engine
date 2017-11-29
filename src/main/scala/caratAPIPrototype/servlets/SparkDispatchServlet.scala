@@ -3,6 +3,8 @@ package caratAPIPrototype.servlets
 
 import caratAPIPrototype.services.SparkDispatcher
 import caratAPIPrototype.services.SparkJobOptions
+//import caratAPIPrototype.servlets.MyFutureSupport
+import org.scalatra.MyFutureSupport
 //import caratAPIPrototype.services.SparkJobOptions
 
 import scala.util.{ Try, Success, Failure }
@@ -21,12 +23,14 @@ import org.scalatra.json._
 
 import javax.servlet.ServletContext
 
-class SparkDispatchServlet(context: ServletContext) extends ScalatraServlet with JacksonJsonSupport with FutureSupport {
+class SparkDispatchServlet(context: ServletContext) extends ScalatraServlet with JacksonJsonSupport with MyFutureSupport {
   protected implicit lazy val jsonFormats: Formats = DefaultFormats
   val conf = ConfigFactory.load()
-	//override val asyncTimeout = conf.getInt("spark-server.timeout") seconds
-  implicit val timeout: Duration = conf.getInt("spark-server.timeout") seconds
+	//override def asyncTimeout = conf.getInt("spark-server.timeout") seconds
+  val timeout: Duration = conf.getInt("spark-server.timeout") seconds
   implicit val executor = ExecutionContext.global
+
+
 
   before() {
     contentType = formats("json")
