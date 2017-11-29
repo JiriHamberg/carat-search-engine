@@ -23,9 +23,10 @@ import javax.servlet.ServletContext
 
 class SparkDispatchServlet(context: ServletContext) extends ScalatraServlet with JacksonJsonSupport with FutureSupport {
   protected implicit lazy val jsonFormats: Formats = DefaultFormats
-	implicit val executor =  ExecutionContext.global
   val conf = ConfigFactory.load()
 	//override val asyncTimeout = conf.getInt("spark-server.timeout") seconds
+  implicit val timeout: Duration = conf.getInt("spark-server.timeout") seconds
+  implicit val executor = ExecutionContext.global
 
   before() {
     contentType = formats("json")
