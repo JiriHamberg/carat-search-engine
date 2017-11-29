@@ -14,7 +14,7 @@ import scala.util.{ Failure, Success }
 
 import com.typesafe.config._
 
-abstract class AsyncResult(
+/*abstract class MyAsyncResult(
   implicit
   override val scalatraContext: ScalatraContext)
   extends ScalatraContext {
@@ -27,11 +27,11 @@ abstract class AsyncResult(
 
   // This is a Duration instead of a timeout because a duration has the concept of infinity
   val conf = ConfigFactory.load()
-  implicit def timeout: Duration =  conf.getInt("spark-server.timeout") seconds
+  implicit def timeout: Duration = conf.getInt("spark-server.timeout") seconds
 
   val is: Future[_]
 
-}
+}*/
 
 trait MyFutureSupport extends AsyncSupport {
 
@@ -39,14 +39,18 @@ trait MyFutureSupport extends AsyncSupport {
 
   override def asynchronously(f: => Any): Action = () => Future(f)
 
+  val myConf = ConfigFactory.load()
+  val myTimeout: Duration = myConf.getInt("spark-server.timeout") seconds
+
+
   override protected def isAsyncExecutable(result: Any): Boolean =
     classOf[Future[_]].isAssignableFrom(result.getClass) ||
       classOf[AsyncResult].isAssignableFrom(result.getClass)
 
   override protected def renderResponse(actionResult: Any): Unit = {
     actionResult match {
-      case r: AsyncResult => handleFuture(r.is, Some(r.timeout))
-      case f: Future[_] => handleFuture(f, None)
+      case r: AsyncResult => handleFuture(r.is, Some(myTimeout))
+      case f: Future[_] => handleFuture(f, Some(myTimeout))
       case a => super.renderResponse(a)
     }
   }
@@ -99,7 +103,7 @@ trait MyFutureSupport extends AsyncSupport {
       def onTimeout(event: AsyncEvent): Unit = {
         onAsyncEvent(event) {
           if (gotResponseAlready.compareAndSet(false, true)) {
-            renderHaltException(HaltException(Some(504), Map.empty, "Gateway timeout"))
+            renderHaltException(HaltException(Some(504), Map.empty, "Gateway timeout 123"))
             event.getAsyncContext.complete()
           }
         }
